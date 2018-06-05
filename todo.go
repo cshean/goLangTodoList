@@ -1,9 +1,13 @@
 package main
 
+// #include <stdio.h>
+// #include <errno.h>
 import (
+	"C"
 	"fmt"
 	"bufio"
 	"os"
+	"database/sql"
 )
 
 func addNewTasks(reader *bufio.Reader){
@@ -16,6 +20,8 @@ func addNewTasks(reader *bufio.Reader){
 		text, _ = reader.ReadString('\n')
 		//Add the task to something
 		fmt.Println(text)
+
+
 		fmt.Println("Do you have another task to enter? (Y/N)")
 		response, _  = reader.ReadString('\n')
 		if response != "Y\r\n" {
